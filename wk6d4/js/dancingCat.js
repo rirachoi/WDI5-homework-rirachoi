@@ -3,8 +3,8 @@ var delayMs = 5;
 var catTimer = null;
 var direction = 'left';
 var img = document.getElementsByTagName('img')[0];
-var stop_image = 'http://i.imgur.com/LyKrhoV.png';
-var moving_image = 'http://img.pandawhale.com/post-6670-Homer-Simpson-Gifs-kvjg.gif';
+var stop_image = 'http://i.imgur.com/9PTzo3A.png?1';
+var moving_image = 'http://i.imgur.com/5yfmSBS.gif';
 
 
 function catWalk() {

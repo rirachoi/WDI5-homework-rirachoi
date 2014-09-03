@@ -35,7 +35,8 @@ $(document).ready(function(){
 
   var add_background = function(){
     var backgroundImage = $('#background-image').val();
-     $('#canvas').css('background-image', 'url(' + backgroundImage + ')');
+     $('#canvas').css('background', 'url(' + backgroundImage + ')no-repeat');
+     $('#canvas').css('background-size',70+'%'+100+'%');
   };
 
   $('#add_color').on('click', add_color);

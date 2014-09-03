@@ -1,23 +1,34 @@
 $(document).ready(function(){
-    $('#next').click(function(){
-      $('img1').css("left", "-=612px");
-    });
-});
+  var totalWidth = $('#carousel').width();
+  var thisMargin;
 
-// $(document).ready(function(){
-//     var direction = $('.carousel-direction');
-//     var next = $('#next');
-//     var pre = $('#previous');
-//     $(direction).click(function(){
-//         switch(direction){
-//             case next:
-//                 $('#img1').animate("{left:"-=612px"}", 'fast');
-//                 break;
-//             case pre:
-//                 $('#img1').animate({left:"+=612px"}, 'fast');
-//                 break;
-//             default:
-//                 break;
-//         };
-//     });
-// });
+  var next = function () {
+      $('#carousel').css({marginLeft: '-=612px'});
+  }
+
+  var previous = function () {
+      $('#carousel').css({marginLeft: '+=612px'});
+  }
+
+  $('#next').on('click', function(){
+    // Without parseInt we will get string - the number with px
+    thisMargin = Math.abs(parseInt($('#carousel').css("marginLeft")));
+    // the width with last image
+    lastImageWithWidth = (totalWidth - 612)
+    if(thisMargin >= lastImageWithWidth) {
+      $('#carousel').find('img:first').appendTo($('#carousel'));
+    } else{
+      next();
+    }
+  });
+
+  $('#previous').on('click', function(){
+    thisMargin = parseInt($('#carousel').css("marginLeft"));
+    if(thisMargin >= 0) {
+      $('#carousel').find('img:last').prependTo($('#carousel'));
+      $('#carousel').css("marginLeft", -612+'px');
+    }
+      previous();
+  });
+
+});
